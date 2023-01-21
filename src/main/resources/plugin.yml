@@ -1,0 +1,13 @@
+name: UHCMeetup
+version: '${project.version}'
+main: io.paper.uhcmeetup.Game
+api-version: 1.8.9
+commands:
+  forcestart:
+    description: 'description'
+  setup:
+    description: 'description'
+  stats:
+    description: 'description'
+  vote:
+    description: 'vote'
