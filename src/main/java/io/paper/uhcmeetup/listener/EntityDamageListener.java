@@ -4,8 +4,10 @@ import io.paper.uhcmeetup.Game;
 import io.paper.uhcmeetup.enums.PlayerState;
 import io.paper.uhcmeetup.gamestate.states.IngameState;
 import io.paper.uhcmeetup.handler.ItemHandler;
+import net.minecraft.server.v1_8_R1.PacketPlayOutRespawn;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -71,13 +73,15 @@ public class EntityDamageListener implements Listener {
 
             public void run() {
                 player.spigot().respawn();
+                PacketPlayOutRespawn packet = new PacketPlayOutRespawn();
+                ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
                 EntityDamageListener.this.game.getGameManager().setPlayerState(player, PlayerState.SPECTATOR);
                 EntityDamageListener.this.game.getGameManager().checkWinner();
                 if (EntityDamageListener.this.game.isDatabaseActive()) {
                     EntityDamageListener.this.game.getDatabaseManager().addDeaths(player, 1);
                 }
             }
-        }.runTaskLater(this.game, 20L);
+        }.runTask(this.game);
     }
 
     @EventHandler
