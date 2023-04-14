@@ -63,12 +63,12 @@ public class GameManager {
                     }
                 }.runTaskTimer((Plugin)this.game, 0L, 20L);
             }
-            Bukkit.broadcastMessage(this.game.getPrefix() + ChatColor.RED + "Il server si restarta tra 20 secondi.");
+            Bukkit.broadcastMessage(this.game.getPrefix() + ChatColor.RED + "Il server si restarta tra pochi secondi.");
             new BukkitRunnable() {
                 public void run() {
                     Bukkit.shutdown();
                 }
-            }.runTaskLater((Plugin)this.game, 400L);
+            }.runTaskLater((Plugin)this.game, 200L);
         }
     }
 
