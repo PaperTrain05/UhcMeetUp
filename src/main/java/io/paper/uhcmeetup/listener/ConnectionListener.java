@@ -36,7 +36,7 @@ public class ConnectionListener
         this.game.getPlayerKills().putIfAbsent(player.getUniqueId(), 0);
         if (this.game.getGameStateManager().getCurrentGameState() instanceof LobbyState) {
             this.game.getGameManager().setPlayerState(player, PlayerState.PLAYER);
-            event.setJoinMessage(this.game.getPrefix() + ChatColor.GREEN + player.getName() + " è entrato in game " + ChatColor.GRAY + "(" + this.game.getPlayers().size() + "/" + Bukkit.getMaxPlayers() + ")");
+            event.setJoinMessage(this.game.getPrefix() + ChatColor.GREEN + player.getName() + ChatColor.YELLOW + " è entrato in game " + "(" + ChatColor.AQUA + this.game.getPlayers().size() + ChatColor.YELLOW + "/" + ChatColor.AQUA + Bukkit.getMaxPlayers() + ChatColor.YELLOW + ")");
             try {
                 player.teleport(this.game.getLocationManager().getLocation("Lobby-Spawn"));
             }
@@ -61,7 +61,7 @@ public class ConnectionListener
         this.game.getPlayers().remove(player);
         this.game.getSpectators().remove(player);
         if (this.game.getGameStateManager().getCurrentGameState() instanceof LobbyState) {
-            event.setQuitMessage(this.game.getPrefix() + ChatColor.RED + player.getName() + " è uscito dal game " + ChatColor.GRAY + "(" + this.game.getPlayers().size() + "/" + Bukkit.getMaxPlayers() + ")");
+            event.setQuitMessage(this.game.getPrefix() + ChatColor.RED + player.getName() + " è uscito dal game " + "(" + ChatColor.AQUA + this.game.getPlayers().size() + ChatColor.YELLOW + "/" + ChatColor.AQUA + Bukkit.getMaxPlayers() + ChatColor.YELLOW + ")");
             if (this.game.getVoted().containsKey(player.getUniqueId())) {
                 Scenarios votedScenario = this.game.getVoted().get(player.getUniqueId());
                 votedScenario.removeVote();

@@ -18,7 +18,7 @@ public class StatsCommand implements CommandExecutor, Listener {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("stats") && sender instanceof Player) {
-            Player player = (Player)((Object)sender);
+            Player player = (Player)sender;
             if (this.game.isDatabaseActive()) {
                 if (args.length == 1) {
                     OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);

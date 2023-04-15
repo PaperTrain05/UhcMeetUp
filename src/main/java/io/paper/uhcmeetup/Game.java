@@ -2,10 +2,12 @@ package io.paper.uhcmeetup;
 
 import io.paper.uhcmeetup.board.MeetupBoardProvider;
 import io.paper.uhcmeetup.board.SimpleBoardManager;
-import io.paper.uhcmeetup.commands.ForceStartCommand;
-import io.paper.uhcmeetup.commands.SetupCommand;
+import io.paper.uhcmeetup.commands.admin.ForceStartCommand;
+import io.paper.uhcmeetup.commands.admin.SetupCommand;
 import io.paper.uhcmeetup.commands.StatsCommand;
 import io.paper.uhcmeetup.commands.VoteCommand;
+import io.paper.uhcmeetup.commands.admin.gamemdoes.Gmc;
+import io.paper.uhcmeetup.commands.admin.gamemdoes.Gms;
 import io.paper.uhcmeetup.enums.PlayerState;
 import io.paper.uhcmeetup.enums.Scenarios;
 import io.paper.uhcmeetup.handler.FileHandler;
@@ -142,7 +144,7 @@ public final class Game extends JavaPlugin {
         config.addDefault("SETTINGS.SECONDARY-COLOR", (Object)"&f");
         config.addDefault("GAME.MIN-PLAYERS", (Object)2);
         config.addDefault("GAME.MAP-RADIUS", (Object)100);
-        config.addDefault("MYSQL.ENABLED", (Object)true);
+        config.addDefault("MYSQL.ENABLED", (Object)false);
         config.addDefault("MYSQL.HOST", (Object)"localhost");
         config.addDefault("MYSQL.USERNAME", (Object)"root");
         config.addDefault("MYSQL.PASSWORD", (Object)"password");
@@ -153,10 +155,12 @@ public final class Game extends JavaPlugin {
     }
 
     private void init(final PluginManager pluginManager) {
-        this.getCommand("setup").setExecutor((CommandExecutor)new SetupCommand());
+        this.getCommand("setspawn").setExecutor((CommandExecutor)new SetupCommand());
         this.getCommand("vote").setExecutor((CommandExecutor)new VoteCommand());
         this.getCommand("stats").setExecutor((CommandExecutor)new StatsCommand());
         this.getCommand("forcestart").setExecutor((CommandExecutor)new ForceStartCommand());
+        this.getCommand("gmc").setExecutor((CommandExecutor)new Gmc());
+        this.getCommand("gms").setExecutor((CommandExecutor)new Gms());
         pluginManager.registerEvents((Listener)new ConnectionListener(), (Plugin)this);
         pluginManager.registerEvents((Listener)new ChunkListener(), (Plugin)this);
         pluginManager.registerEvents((Listener)new WeatherChangeListener(), (Plugin)this);

@@ -18,11 +18,11 @@ public class VoteCommand implements CommandExecutor, Listener {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("vote") && sender instanceof Player) {
-            Player player = (Player)((Object)sender);
+            Player player = (Player)sender;
             if (this.game.getGameStateManager().getCurrentGameState() instanceof LobbyState) {
                 this.game.getInventoryHandler().handleVotingInventory(player);
             } else {
-                player.sendMessage(this.game.getPrefix() + ChatColor.RED + "The game has already started!");
+                player.sendMessage(this.game.getPrefix() + ChatColor.RED + "Il game è gia iniziato");
             }
         }
         return false;
@@ -30,7 +30,7 @@ public class VoteCommand implements CommandExecutor, Listener {
 
     @EventHandler
     public void handleInventoryClickEvent(InventoryClickEvent event) {
-        Player player = (Player)((Object)event.getWhoClicked());
+        Player player = (Player)event.getWhoClicked();
         if (this.game.getGameStateManager().getCurrentGameState() instanceof LobbyState && event.getClickedInventory() != null && event.getCurrentItem() != null && event.getInventory().getName().contains("Scenario Voting")) {
             event.setCancelled(true);
             if (!this.game.getVoted().containsKey(player.getUniqueId())) {

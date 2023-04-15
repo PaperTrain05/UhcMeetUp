@@ -5,9 +5,13 @@ api-version: 1.8.9
 commands:
   forcestart:
     description: 'description'
-  setup:
+  setspawn:
     description: 'description'
   stats:
     description: 'description'
   vote:
     description: 'vote'
+  gms:
+    description: 'description'
+  gmc:
+    description: 'description'

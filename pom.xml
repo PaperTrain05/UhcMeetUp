@@ -82,7 +82,7 @@
             <artifactId>craftbukkit</artifactId>
             <version>1.8-R0.1-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>E:/SEZIONEMIA/Developing/Java/MinecraftProjects/UhcMeetUp/src/main/resources/craftbukkit-1.8-R0.1-SNAPSHOT-latest.jar</systemPath>
+            <systemPath>E:/SEZIONEMIA/Developing/Java/MinecraftProjects/UhcMeetUp/src/main/resources/WorldBorder.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

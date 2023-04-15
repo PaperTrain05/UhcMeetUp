@@ -25,7 +25,7 @@ public class MeetupBoardProvider implements BoardProvider {
 
     @Override
     public String getTitle(final Player player) {
-        return this.scoreboardTitle.replace("&", "§");
+        return this.scoreboardTitle.replaceAll("&", "§");
     }
 
     @Override
