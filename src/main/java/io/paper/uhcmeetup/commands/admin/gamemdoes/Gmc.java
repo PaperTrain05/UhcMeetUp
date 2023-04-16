@@ -15,7 +15,7 @@ public class Gmc implements CommandExecutor {
 
             if(p.hasPermission("uhcmeetup.admin.gamemdoes")){
                 if(args.length == 0){
-                    p.sendMessage("§7Gmc attivata");
+                    p.sendMessage("§fGmc attivata");
                     p.setGameMode(GameMode.CREATIVE);
                 }
             }else {

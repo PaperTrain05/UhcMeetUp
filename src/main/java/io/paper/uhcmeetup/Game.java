@@ -6,6 +6,7 @@ import io.paper.uhcmeetup.commands.admin.ForceStartCommand;
 import io.paper.uhcmeetup.commands.admin.SetupCommand;
 import io.paper.uhcmeetup.commands.StatsCommand;
 import io.paper.uhcmeetup.commands.VoteCommand;
+import io.paper.uhcmeetup.commands.admin.UhcAdmin;
 import io.paper.uhcmeetup.commands.admin.gamemdoes.Gmc;
 import io.paper.uhcmeetup.commands.admin.gamemdoes.Gms;
 import io.paper.uhcmeetup.enums.PlayerState;
@@ -161,6 +162,7 @@ public final class Game extends JavaPlugin {
         this.getCommand("forcestart").setExecutor((CommandExecutor)new ForceStartCommand());
         this.getCommand("gmc").setExecutor((CommandExecutor)new Gmc());
         this.getCommand("gms").setExecutor((CommandExecutor)new Gms());
+        this.getCommand("uhcmeetup").setExecutor((CommandExecutor)new UhcAdmin());
         pluginManager.registerEvents((Listener)new ConnectionListener(), (Plugin)this);
         pluginManager.registerEvents((Listener)new ChunkListener(), (Plugin)this);
         pluginManager.registerEvents((Listener)new WeatherChangeListener(), (Plugin)this);

@@ -12,7 +12,7 @@ public class Gms implements CommandExecutor {
         Player p = (Player) sender;
         if(p.hasPermission("uhcmeetup.admin.gamemdoes")){
             if(args.length == 0){
-                p.sendMessage("§7Gms attivata");
+                p.sendMessage("§fGms attivata");
                 p.setGameMode(GameMode.SURVIVAL);
             }
         }else {

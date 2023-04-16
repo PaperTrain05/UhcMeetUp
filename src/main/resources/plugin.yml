@@ -15,3 +15,5 @@ commands:
     description: 'description'
   gmc:
     description: 'description'
+  uhcmeetup:
+    description: 'description'
